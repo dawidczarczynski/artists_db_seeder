@@ -16,10 +16,12 @@ const prompts = Object.freeze({
   );
 
   const artist_name = await cli.question(prompts.ARTIST);
-  const artist_data = await scrapper.fetchArtistData(artist_name);
+  const artist_data = await scrapper.fetch_artist_data(artist_name);
 
-  await file.saveOutput(
+  await file.save_output(
     artist_data,
     artist_name
   );
+
+  // process.exit(0);
 })();

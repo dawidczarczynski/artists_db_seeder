@@ -1,17 +1,17 @@
 const fs = require('fs');
 
-const formatOutput = output => JSON.stringify(output, null, 4);
+const format_output = output => JSON.stringify(output, null, 4);
 
-const saveOutput = (output, filename) => {
-  const formattedOutput = formatOutput(output);
+const save_output = (output, filename) => {
+  const formatted_output = format_output(output);
 
   fs.writeFile(
     `./outputs/${( filename || 'output' )}.json`,
-    formattedOutput,
+    formatted_output,
     error => error
       ? console.error(error)
       : console.log('Output saved to file')
   );
 };
 
-module.exports = { saveOutput };
+module.exports = { save_output };
