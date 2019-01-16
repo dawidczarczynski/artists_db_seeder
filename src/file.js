@@ -4,14 +4,15 @@ const format_output = output => JSON.stringify(output, null, 4);
 
 const save_output = (output, filename) => {
   const formatted_output = format_output(output);
+  const formatted_filename = `./outputs/${( filename || 'output' )}.json`;
 
-  fs.writeFile(
-    `./outputs/${( filename || 'output' )}.json`,
+  return new Promise((resolve, reject) => fs.writeFile(
+    formatted_filename,
     formatted_output,
     error => error
-      ? console.error(error)
-      : console.log('Output saved to file')
-  );
+      ? reject(error)
+      : resolve(`Output saved to file: ${formatted_filename}`)
+  ));
 };
 
 module.exports = { save_output };

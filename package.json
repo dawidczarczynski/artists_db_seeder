@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "clear": "rm -rf ./outputs/*",
     "postinstall": "mkdir ./outputs"
   },
   "author": "",

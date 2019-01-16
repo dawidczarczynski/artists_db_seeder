@@ -5,23 +5,29 @@ const scrapper = require('./scrapper');
 const file = require('./file');
 
 const prompts = Object.freeze({
-  EMAIL: 'Enter your email: ',
-  PASSWORD: 'Enter your password: ',
-  ARTIST: 'Enter artist name: '
+  ARTIST: 'Enter artist name: ',
+  FETCHING: 'Fetching artist data...'
 });
 
 (async function() {
+  // Get Spotify API auth token
   api.set_access_token(
     await auth.get_access_token()
   );
 
+  // Input artist name
   const artist_name = await cli.question(prompts.ARTIST);
+
+  // Fetch artist data
+  console.log(prompts.FETCHING);
   const artist_data = await scrapper.fetch_artist_data(artist_name);
 
-  await file.save_output(
+  // Save results to file
+  const saving_result = await file.save_output(
     artist_data,
     artist_name
   );
+  console.log(saving_result);
 
-  // process.exit(0);
+  process.exit(0);
 })();
