@@ -9,7 +9,7 @@ const actions = Object.freeze({
 
 const endpoints = Object.freeze({
   [actions.SEARCH]: name => `search?q=${name}&type=artist`,
-  [actions.ALBUMS_IDS]: id => `artists/${id}/albums`,
+  [actions.ALBUMS_IDS]: id => `artists/${id}/albums?include_groups=album&market=PL&limit=5&offset=5`,
   [actions.ALBUM_DETAILS]: ids => `albums?ids=${ids}`
 });
 
@@ -28,7 +28,7 @@ const set_access_token = ({ access_token, token_type }) => {
 const handle_http_errors = response => {
   if (response.error) {
     throw Error(response.error.message);
-  } 
+  }
   return response;
 };
 

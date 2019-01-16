@@ -3,5 +3,13 @@
   "RELEASE_DATE": "data_wydania",
   "TRACKS": "utwory",
   "DURATION": "dlugosc",
-  "POSITION": "pozycja"
+  "POSITION": "pozycja",
+  "NAME": "nazwa",
+  "GENRES": "gatunki",
+  "GENRE": "gatunek",
+  "ALBUMS": "albumy",
+  "ORIGIN": "kraj_pochodzenia",
+  "MEMBERS": "sklad",
+  "START_YEAR": "rok_debiutu",
+  "MEDIUM": "nosnik"
 }
